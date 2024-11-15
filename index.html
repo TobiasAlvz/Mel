@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seleção de Qualidade</title>
+        <style>
+        /* Estilo geral */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e; /* Fundo escuro */
+            color: #e0e0e0; /* Texto claro */
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* Estilo do seletor */
+        select {
+            font-size: 1rem;
+            padding: 10px 15px;
+            border: 1px solid #555; /* Borda escura */
+            border-radius: 8px;
+            background-color: #333; /* Fundo escuro */
+            color: #fff; /* Texto branco */
+            font-weight: bold;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        select:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+
+        /* Estilo da imagem */
+        img {
+            margin-top: 20px;
+            width: 300px;
+            height: 200px;
+            object-fit: contain;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Selecione a Qualidade</h1>
+
+        <select id="qualitySelector">
+            <option value="144p" selected>144p</option>
+            <option value="360p">360p</option>
+            <option value="720p">720p</option>
+            <option value="1080p">1080p</option>
+            <option value="infinite">∞</option>
+        </select>
+
+        <img id="previewImage"
+            src="https://img.freepik.com/fotos-gratis/tinta-spray_1194-2386.jpg?w=360"
+            alt="Pré-visualização">
+
+        <script>
+        // Elementos DOM
+        const qualitySelector = document.getElementById('qualitySelector');
+        const previewImage = document.getElementById('previewImage');
+
+        const images = {
+            '144p': 'https://img.freepik.com/fotos-gratis/tinta-spray_1194-2386.jpg?w=360',
+            '360p': 'https://png.pngtree.com/png-clipart/20201213/ourmid/pngtree-low-poly-red-heart-png-image_2556085.jpg',
+            '720p': 'https://artpoin.com/wp-content/uploads/2023/07/artpoin-coracoes-fundo-transparente-png.png',
+            '1080p': 'https://png.pngtree.com/png-vector/20220411/ourmid/pngtree-red-3d-heart-emoji-realistic-shadow-png-image_4539964.png',
+            'infinite': '52b9b6c3-8ef7-47f5-a569-2080ea609607.jfif'
+        };
+
+        qualitySelector.addEventListener('change', () => {
+            const selectedQuality = qualitySelector.value;
+            previewImage.src = images[selectedQuality] || images['144p'];
+        });
+    </script>
+    </body>
+</html>
